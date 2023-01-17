@@ -3,7 +3,7 @@ module.exports.MapApiDataToResponse = class Mappers {
     console.log("d", data);
     let response = data.reduce((accum, curr) => {
       console.log("curr", curr);
-      let result = "";
+      let result = `Company Name ${curr.companyName}\n`;
       for (let i = 0; i < curr.jobOpenings.length; i++) {
         console.log(curr.jobOpenings[i].description);
         result += `${i + 1}. ${curr.jobOpenings[i].description}\n`;

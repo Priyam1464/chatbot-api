@@ -2,9 +2,7 @@ const { MongoClient, ObjectId } = require("mongodb");
 module.exports.MongoDbConnection = class MongoDbConnection {
   constructor() {
     if (!MongoDbConnection._instance) {
-      const mongoClient = new MongoClient(
-        "mongodb://cosmosaccounttry:SUcNspJmg0w7SIAsgh8qUY8umDW8jWmVCzBfVnANSaezVIvio6ZBUGdh3nzKeY0jYsbK4phgiEg6ACDbjQ41yQ%3D%3D@cosmosaccounttry.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&maxIdleTimeMS=120000&appName=@cosmosaccounttry@"
-      );
+      const mongoClient = new MongoClient(process.env.MONGO_DB_URL);
       this.database = mongoClient.db("chatbot");
       MongoDbConnection._instance = this;
     }
